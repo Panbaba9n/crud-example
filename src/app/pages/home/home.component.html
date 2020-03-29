@@ -1,0 +1,33 @@
+<h1>Simple CRUD Example</h1>
+
+<form class="article-form" [formGroup]="articleForm" (ngSubmit)="onSubmit()">
+  <label class="article-form-label">
+    Title
+    <input formControlName="title" type="text">
+  </label>
+  <label class="article-form-label">
+    Category
+    <input formControlName="category" type="text">
+  </label>
+  <div class="buttons-wrapper">
+    <button type="submit" [disabled]="isLoading">{{articleIsUpdating ? 'Update' : 'Create'}}</button>
+    <button type="reset" (click)="cancelEditting()">Cancel</button>
+  </div>
+</form>
+
+<!-- TODO: move to separate component -->
+<h2>Article Details</h2>
+<div class="articles-table">
+  <div class="articles-table-row">
+    <div *ngFor="let title of ['ID', 'Title', 'Category', '', '']" class="articles-table-header">{{title}}</div>
+  </div>
+
+  <div *ngFor="let article of articles; trackBy: trackByArticles" class="articles-table-row">
+    <div class="articles-table-data">{{article.id}}</div>
+    <div class="articles-table-data">{{article.title}}</div>
+    <div class="articles-table-data">{{article.category}}</div>
+    <div class="articles-table-data"><button (click)="edit(article)">Edit</button></div>
+    <div class="articles-table-data"><button (click)="delete(article)">Delete</button></div>
+  </div>
+
+</div>

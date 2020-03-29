@@ -1,0 +1,21 @@
+.article-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.article-form-label {
+  display: flex;
+  flex-direction: column;
+}
+
+.articles-table,
+.articles-table-header,
+.articles-table-data {
+  border: 1px solid #dee3e2
+}
+
+.articles-table-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-auto-rows: auto;
+}
