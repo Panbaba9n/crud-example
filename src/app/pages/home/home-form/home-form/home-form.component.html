@@ -1,0 +1,14 @@
+<form class="article-form" [formGroup]="articleForm" (ngSubmit)="onSubmit()">
+  <label class="article-form-label">
+    Title
+    <input formControlName="title" type="text">
+  </label>
+  <label class="article-form-label">
+    Category
+    <input formControlName="category" type="text">
+  </label>
+  <div class="buttons-wrapper">
+    <button type="submit" [disabled]="loading$ | async">{{articleIsUpdating ? 'Update' : 'Create'}}</button>
+    <button type="reset" (click)="cancelEditting()">Cancel</button>
+  </div>
+</form>
